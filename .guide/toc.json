@@ -1,0 +1,709 @@
+[
+	{
+		"label": "Introduction",
+		"description": "System overview and high-level architecture.",
+		"markdown": ".guide/introduction/introduction.md",
+		"actions": [],
+		"lessons": [
+			{
+				"label": "Preparing your environment",
+				"description": "Setting up your development environment and installing the required dependencies.",
+				"markdown": ".guide/introduction/preparing-your-environment.md",
+				"actions": [
+					{
+						"label": "Check dependencies",
+						"target": "just dependencies"
+					}
+				]
+			},
+			{
+				"label": "Setting up MLflow",
+				"description": "Configuring MLflow to track experiments, manage models, and streamline the training process.",
+				"markdown": ".guide/introduction/setting-up-mlflow.md",
+				"actions": [
+					{
+						"label": "Run MLflow server",
+						"target": "just mlflow",
+						"terminal": "MLflow Server"
+					},
+					{
+						"label": "Open MLflow UI",
+						"action": "browser",
+						"target": "http://127.0.0.1:5000"
+					}
+				]
+			},
+			{
+				"label": "Environment variables",
+				"description": "Setting up the necessary environment variables to configure the pipelines.",
+				"markdown": ".guide/introduction/environment-variables.md",
+				"actions": [
+					{
+						"label": "Set up .env file",
+						"target": "just env"
+					}
+				]
+			},
+			{
+				"label": "Exploratory data analysis",
+				"description": "Exploring the dataset to understand its features and the relationships between them.",
+				"file": "notebooks/eda.ipynb",
+				"markdown": ".guide/introduction/exploratory-data-analysis.md",
+				"actions": [
+					{
+						"label": "Execute notebook",
+						"target": "uv run jupyter execute notebooks/eda.ipynb"
+					}
+				]
+			},
+			{
+				"label": "Assignments",
+				"description": "List of assignments for the current section.",
+				"markdown": ".guide/introduction/assignments.md",
+				"actions": []
+			}
+		]
+	},
+	{
+		"label": "Introduction to Metaflow",
+		"description": "Introducing the Metaflow framework for building Machine Learning pipelines.",
+		"file": ".guide/introduction-to-metaflow/src/introduction.py",
+		"markdown": ".guide/introduction-to-metaflow/introduction-to-metaflow.md",
+		"actions": [
+			{
+				"label": "Run pipeline",
+				"target": "uv run .guide/introduction-to-metaflow/src/introduction.py run"
+			}
+		],
+		"lessons": [
+			{
+				"label": "Metaflow artifacts",
+				"description": "Managing and persisting data across the different steps of a Metaflow pipeline.",
+				"file": ".guide/introduction-to-metaflow/src/artifacts.py",
+				"markdown": ".guide/introduction-to-metaflow/metaflow-artifacts.md",
+				"actions": [
+					{
+						"label": "Run pipeline",
+						"target": "uv run .guide/introduction-to-metaflow/src/artifacts.py run"
+					}
+				]
+			},
+			{
+				"label": "Parallel branches",
+				"description": "Executing steps in parallel and propagating artifacts through a Metaflow pipeline.",
+				"file": ".guide/introduction-to-metaflow/src/branches.py",
+				"markdown": ".guide/introduction-to-metaflow/parallel-branches.md",
+				"actions": [
+					{
+						"label": "Run pipeline",
+						"target": "uv run .guide/introduction-to-metaflow/src/branches.py run"
+					}
+				]
+			},
+			{
+				"label": "Foreach branches",
+				"description": "Creating a dynamic number of parallel branches to process data items independently.",
+				"file": ".guide/introduction-to-metaflow/src/foreach.py",
+				"markdown": ".guide/introduction-to-metaflow/foreach-branches.md",
+				"actions": [
+					{
+						"label": "Run pipeline",
+						"target": "uv run .guide/introduction-to-metaflow/src/foreach.py run"
+					}
+				]
+			},
+			{
+				"label": "Parameterizing flows",
+				"description": "Customizing the execution of a Metaflow pipeline using user-defined parameters.",
+				"file": ".guide/introduction-to-metaflow/src/parameters.py",
+				"markdown": ".guide/introduction-to-metaflow/parameterizing-flows.md",
+				"actions": [
+					{
+						"label": "Run pipeline with custom values",
+						"target": "uv run .guide/introduction-to-metaflow/src/parameters.py run --one 10 --two twenty"
+					},
+					{
+						"label": "Run pipeline with default values",
+						"target": "uv run .guide/introduction-to-metaflow/src/parameters.py run"
+					}
+				]
+			},
+			{
+				"label": "Configuring flows",
+				"description": "Configuring the behavior of a Metaflow flow using configuration files.",
+				"file": ".guide/introduction-to-metaflow/src/config.py",
+				"markdown": ".guide/introduction-to-metaflow/configuring-flows.md",
+				"actions": [
+					{
+						"label": "Run pipeline with config 1",
+						"target": "uv run .guide/introduction-to-metaflow/src/config.py run"
+					},
+					{
+						"label": "Run pipeline with config 2",
+						"target": "uv run .guide/introduction-to-metaflow/src/config.py --config config .guide/introduction-to-metaflow/data/config2.yml run"
+					},
+					{
+						"label": "Run pipeline with inline config",
+						"target": "uv run .guide/introduction-to-metaflow/src/config.py --config-value config \"{\"value1\": 1000, \"value2\": 2000}\" run"
+					}
+				]
+			},
+			{
+				"label": "Including files",
+				"description": "Versioning and making local files available across every step of a Metaflow pipeline.",
+				"file": ".guide/introduction-to-metaflow/src/files.py",
+				"markdown": ".guide/introduction-to-metaflow/including-files.md",
+				"actions": [
+					{
+						"label": "Run pipeline",
+						"target": "uv run .guide/introduction-to-metaflow/src/files.py run --file .guide/introduction-to-metaflow/data/sample.csv"
+					}
+				]
+			},
+			{
+				"label": "Compute resources",
+				"description": "Requesting and allocating compute resources to handle larger tasks in a Metaflow pipeline.",
+				"file": ".guide/introduction-to-metaflow/src/resources.py",
+				"markdown": ".guide/introduction-to-metaflow/compute-resources.md",
+				"actions": [
+					{
+						"label": "Run pipeline",
+						"target": "uv run .guide/introduction-to-metaflow/src/resources.py run"
+					}
+				]
+			},
+			{
+				"label": "Environment variables",
+				"description": "Accessing environment variables consistently across local and remote pipeline executions.",
+				"file": ".guide/introduction-to-metaflow/src/environment.py",
+				"markdown": ".guide/introduction-to-metaflow/environment-variables.md",
+				"actions": [
+					{
+						"label": "Run pipeline",
+						"target": "METAFLOW_VARIABLE=123 uv run .guide/introduction-to-metaflow/src/environment.py run"
+					}
+				]
+			},
+			{
+				"label": "Decorators and mutators",
+				"description": "Extending Metaflow's functionality with custom decorators and mutators.",
+				"file": ".guide/introduction-to-metaflow/src/decorators.py",
+				"markdown": ".guide/introduction-to-metaflow/decorators-and-mutators.md",
+				"actions": [
+					{
+						"label": "Run pipeline",
+						"target": "uv run .guide/introduction-to-metaflow/src/decorators.py run"
+					}
+				]
+			},
+			{
+				"label": "Visualizing results",
+				"description": "Generating custom visualization reports to monitor, debug, and share results from your pipelines.",
+				"file": ".guide/introduction-to-metaflow/src/cards.py",
+				"markdown": ".guide/introduction-to-metaflow/visualizing-results.md",
+				"actions": [
+					{
+						"label": "Run pipeline",
+						"target": "uv run .guide/introduction-to-metaflow/src/cards.py run"
+					},
+					{
+						"label": "Run card server",
+						"target": "uv run .guide/introduction-to-metaflow/src/cards.py card server",
+						"terminal": "Metaflow Card Server"
+					},
+					{
+						"label": "Open card viewer",
+						"action": "browser",
+						"target": "http://localhost:8324"
+					}
+				]
+			},
+			{
+				"label": "Assignments",
+				"description": "List of assignments for the current section.",
+				"markdown": ".guide/introduction-to-metaflow/assignments.md",
+				"actions": []
+			}
+		]
+	},
+	{
+		"label": "The Training Pipeline",
+		"description": "Introducing the Training pipeline, which we'll use to train, evaluate, and register the model.",
+		"file": "src/pipelines/training.py",
+		"markdown": ".guide/training-pipeline/introduction.md",
+		"actions": [
+			{
+				"label": "Run Training pipeline",
+				"target": "just train"
+			},
+			{
+				"label": "Run Training card server",
+				"target": "uv run src/pipelines/training.py card server",
+				"terminal": "Training Card Server"
+			},
+			{
+				"label": "Open card viewer",
+				"action": "browser",
+				"target": "http://localhost:8324"
+			},
+			{
+				"label": "Run unit tests",
+				"action": "command",
+				"target": "uv run pytest -k test_train"
+			}
+		],
+		"lessons": [
+			{
+				"label": "Sketching the workflow",
+				"description": "Outlining the overall structure of the workflow with the basic building blocks of the pipeline.",
+				"file": ".guide/training-pipeline/src/sketch.py",
+				"markdown": ".guide/training-pipeline/sketching-the-workflow.md",
+				"actions": [
+					{
+						"label": "Run pipeline",
+						"target": "uv run .guide/training-pipeline/src/sketch.py run"
+					}
+				]
+			},
+			{
+				"label": "Loading the data",
+				"description": "Loading and preparing the data that will be used by the pipeline to build a model.",
+				"file": "src/common/pipeline.py",
+				"markdown": ".guide/training-pipeline/loading-the-data.md",
+				"actions": [
+					{
+						"label": "Run unit tests",
+						"action": "tests",
+						"target": "tests/common/test_common_pipeline.py | uv run pytest -k test_common_pipeline"
+					}
+				]
+			},
+			{
+				"label": "Integrating with MLflow",
+				"description": "Integrating the pipeline with MLflow to track the training, evaluation, and registration processes.",
+				"file": "src/pipelines/training.py",
+				"markdown": ".guide/training-pipeline/integrating-with-mlflow.md",
+				"actions": [
+					{
+						"label": "Open MLflow UI",
+						"action": "browser",
+						"target": "http://127.0.0.1:5000"
+					},
+					{
+						"label": "Run unit tests",
+						"action": "tests",
+						"target": "tests/common/test_common_pipeline.py | uv run pytest -k test_common_pipeline"
+					}
+				]
+			},
+			{
+				"label": "Cross-validation strategy",
+				"description": "Implementing a cross-validation strategy to evaluate the model's performance.",
+				"file": "src/pipelines/training.py",
+				"markdown": ".guide/training-pipeline/cross-validation-strategy.md",
+				"actions": [
+					{
+						"label": "Run unit tests",
+						"action": "tests",
+						"target": "tests/pipelines/test_training_cross_validation.py | uv run pytest -k test_training_cross_validation"
+					}
+				]
+			},
+			{
+				"label": "Transforming fold data",
+				"description": "Preprocessing the data for each fold during the cross-validation process.",
+				"file": "src/pipelines/training.py",
+				"markdown": ".guide/training-pipeline/transforming-fold-data.md",
+				"actions": [
+					{
+						"label": "Run unit tests",
+						"action": "tests",
+						"target": "tests/pipelines/test_training_transform.py | uv run pytest -k test_training_transform"
+					}
+				]
+			},
+			{
+				"label": "Training fold model",
+				"description": "Training a model for each fold during the cross-validation process.",
+				"file": "src/pipelines/training.py",
+				"markdown": ".guide/training-pipeline/training-fold-model.md",
+				"actions": [
+					{
+						"label": "Run unit tests",
+						"action": "tests",
+						"target": "tests/pipelines/test_training_train.py | uv run pytest -k test_training_train"
+					}
+				]
+			},
+			{
+				"label": "Evaluating fold model",
+				"description": "Evaluating the model's performance for each fold during the cross-validation process.",
+				"file": "src/pipelines/training.py",
+				"markdown": ".guide/training-pipeline/evaluating-fold-model.md",
+				"actions": [
+					{
+						"label": "Open MLflow UI",
+						"action": "browser",
+						"target": "http://127.0.0.1:5000"
+					},
+					{
+						"label": "Run unit tests",
+						"action": "tests",
+						"target": "tests/pipelines/test_training_evaluate.py | uv run pytest -k test_training_evaluate"
+					}
+				]
+			},
+			{
+				"label": "Averaging model scores",
+				"description": "Computing the final model's performance by averaging the accuracy across all models from the cross-validation process.",
+				"file": "src/pipelines/training.py",
+				"markdown": ".guide/training-pipeline/averaging-model-scores.md",
+				"actions": [
+					{
+						"label": "Open MLflow UI",
+						"action": "browser",
+						"target": "http://127.0.0.1:5000"
+					},
+					{
+						"label": "Run unit tests",
+						"action": "tests",
+						"target": "tests/pipelines/test_training_evaluate.py | uv run pytest -k test_training_evaluate"
+					}
+				]
+			},
+			{
+				"label": "Transforming the dataset",
+				"description": "Preprocessing the entire dataset before training the final model.",
+				"file": "src/pipelines/training.py",
+				"markdown": ".guide/training-pipeline/transforming-the-dataset.md",
+				"actions": [
+					{
+						"label": "Run unit tests",
+						"action": "tests",
+						"target": "tests/pipelines/test_training_transform.py | uv run pytest -k test_training_transform"
+					}
+				]
+			},
+			{
+				"label": "Training the final model",
+				"description": "Training the final model using all of the available data.",
+				"file": "src/pipelines/training.py",
+				"markdown": ".guide/training-pipeline/training-the-final-model.md",
+				"actions": [
+					{
+						"label": "Run unit tests",
+						"action": "tests",
+						"target": "tests/pipelines/test_training_train.py | uv run pytest -k test_training_train"
+					}
+				]
+			},
+			{
+				"label": "Registering the model",
+				"description": "Registering the final model in the model registry if its performance is above a predefined threshold.",
+				"file": "src/pipelines/training.py",
+				"markdown": ".guide/training-pipeline/registering-the-model.md",
+				"actions": [
+					{
+						"label": "Run unit tests",
+						"action": "tests",
+						"target": "tests/pipelines/test_training_register.py | uv run pytest -k test_training_register"
+					}
+				]
+			},
+			{
+				"label": "Assignments",
+				"description": "List of assignments for the current section.",
+				"markdown": ".guide/training-pipeline/assignments.md",
+				"actions": []
+			}
+		]
+	},
+	{
+		"label": "The Inference Pipeline",
+		"description": "Introducing the Inference pipeline to generate predictions using the model.",
+		"file": "src/inference/model.py",
+		"markdown": ".guide/inference-pipeline/introduction.md",
+		"actions": [
+			{
+				"label": "Run unit tests",
+				"action": "command",
+				"target": "uv run pytest -k test_model"
+			}
+		],
+		"lessons": [
+			{
+				"label": "Initializing the backend",
+				"description": "Initializing the backend instance that will be used to store the input requests and the predictions from the model.",
+				"file": "src/inference/model.py",
+				"markdown": ".guide/inference-pipeline/initializing-backend.md",
+				"actions": [
+					{
+						"label": "Run unit tests",
+						"action": "tests",
+						"target": "tests/inference/test_model_backend.py | uv run pytest -k test_model_backend"
+					}
+				]
+			},
+			{
+				"label": "Loading artifacts",
+				"description": "Loading the model and the SciKit-Learn transformation pipelines in memory.",
+				"file": "src/inference/model.py",
+				"markdown": ".guide/inference-pipeline/loading-artifacts.md",
+				"actions": [
+					{
+						"label": "Run unit tests",
+						"action": "tests",
+						"target": "tests/inference/test_model_artifacts.py | uv run pytest -k test_model_artifacts"
+					}
+				]
+			},
+			{
+				"label": "Making predictions",
+				"description": "Using the Inference pipeline to make predictions on the input requests.",
+				"file": "src/inference/model.py",
+				"markdown": ".guide/inference-pipeline/making-predictions.md",
+				"actions": [
+					{
+						"label": "Run unit tests",
+						"action": "tests",
+						"target": "tests/inference/test_model_predict.py | uv run pytest -k test_model_predict"
+					}
+				]
+			},
+			{
+				"label": "Assignments",
+				"description": "List of assignments for the current section.",
+				"markdown": ".guide/inference-pipeline/assignments.md",
+				"actions": []
+			}
+		]
+	},
+	{
+		"label": "Serving the model",
+		"description": "Deploying the latest registered model from the model registry as a local server.",
+		"file": "justfile",
+		"markdown": ".guide/serving-model/introduction.md",
+		"actions": [
+			{
+				"label": "Serve model",
+				"target": "just serve",
+				"terminal": "Inference server"
+			}
+		],
+		"lessons": [
+			{
+				"label": "Invoking the model",
+				"description": "Sending one sample request to the local running model.",
+				"file": "justfile",
+				"markdown": ".guide/serving-model/invoking-the-model.md",
+				"actions": [
+					{
+						"label": "Run sample request",
+						"target": "just sample"
+					},
+					{
+						"label": "Query SQLite database",
+						"target": "just sqlite"
+					}
+				]
+			},
+			{
+				"label": "Assignments",
+				"description": "List of assignments for the current section.",
+				"markdown": ".guide/serving-model/assignments.md",
+				"actions": []
+			}
+		]
+	},
+	{
+		"label": "The Monitoring Pipeline",
+		"description": "Introducing the Monitoring pipeline to monitor the quality of input data and model's performance.",
+		"file": "src/pipelines/monitoring.py",
+		"markdown": ".guide/monitoring-pipeline/introduction.md",
+		"actions": [
+			{
+				"label": "Run Monitoring pipeline",
+				"target": "just monitor"
+			},
+			{
+				"label": "Run Monitoring card server",
+				"target": "uv run src/pipelines/monitoring.py card server",
+				"terminal": "Monitoring Card Server"
+			},
+			{
+				"label": "Open card viewer",
+				"action": "browser",
+				"target": "http://localhost:8324"
+			},
+			{
+				"label": "Run unit tests",
+				"action": "command",
+				"target": "uv run pytest -k test_monitoring"
+			}
+		],
+		"lessons": [
+			{
+				"label": "Generating fake traffic",
+				"description": "Generating fake traffic to simulate the input data for the hosted model.",
+				"file": "src/pipelines/traffic.py",
+				"markdown": ".guide/monitoring-pipeline/generating-fake-traffic.md",
+				"actions": [
+					{
+						"label": "Generate fake traffic",
+						"target": "just traffic"
+					}
+				]
+			},
+			{
+				"label": "Generating fake labels",
+				"description": "Generating fake ground truth labels for the data processed by the hosted model.",
+				"file": "src/pipelines/traffic.py",
+				"markdown": ".guide/monitoring-pipeline/generating-fake-labels.md",
+				"actions": [
+					{
+						"label": "Generate fake labels",
+						"target": "just labels"
+					}
+				]
+			},
+			{
+				"label": "Monitoring data quality",
+				"description": "Monitoring the quality of the input data processed by the hosted model.",
+				"file": "src/pipelines/monitoring.py",
+				"markdown": ".guide/monitoring-pipeline/monitoring-data-quality.md",
+				"actions": []
+			},
+			{
+				"label": "Monitoring model quality",
+				"description": "Monitoring the quality of the predictions generated by the hosted model.",
+				"file": "src/pipelines/monitoring.py",
+				"markdown": ".guide/monitoring-pipeline/monitoring-model-quality.md",
+				"actions": []
+			},
+			{
+				"label": "Assignments",
+				"description": "List of assignments for the current section.",
+				"markdown": ".guide/monitoring-pipeline/assignments.md",
+				"actions": []
+			}
+		]
+	},
+	{
+		"label": "Amazon Web Services",
+		"description": "Running the system on an Amazon Web Services (AWS) account.",
+		"file": "src/scripts/aws.py",
+		"markdown": ".guide/amazon-web-services/introduction.md",
+		"actions": [
+			{
+				"label": "Setup AWS resources",
+				"target": "just aws-setup mlschool us-east-1"
+			},
+			{
+				"label": "Clean up AWS resources",
+				"target": "just aws-teardown"
+			},
+			{
+				"label": "Open CloudFormation template",
+				"action": "file",
+				"target": "cloud-formation/mlschool-cfn.yaml"
+			}
+		],
+		"lessons": [
+			{
+				"label": "Running remote MLflow server",
+				"description": "Running an MLflow server on an AWS EC2 instance.",
+				"file": "cloud-formation/mlflow-cfn.yaml",
+				"markdown": ".guide/amazon-web-services/running-remote-mlflow-server.md",
+				"actions": [
+					{
+						"label": "Deploy Cloud Formation stack",
+						"target": "just aws-mlflow"
+					},
+					{
+						"label": "Connect to MLflow server",
+						"target": "just aws-ssh"
+					}
+				]
+			},
+			{
+				"label": "Deploying the model to Sagemaker",
+				"description": "Deploying the model to a Sagemaker endpoint.",
+				"file": "src/pipelines/deployment.py",
+				"markdown": ".guide/amazon-web-services/deploying-the-model-to-sagemaker.md",
+				"actions": [
+					{
+						"label": "Run deployment pipeline",
+						"target": "just sagemaker-deploy"
+					},
+					{
+						"label": "Test Sagemaker endpoint",
+						"target": "just sagemaker-sample"
+					},
+					{
+						"label": "Delete Sagemaker endpoint",
+						"target": "just sagemaker-delete"
+					}
+				]
+			},
+			{
+				"label": "Monitoring Sagemaker model",
+				"description": "Monitoring the model running on a Sagemaker endpoint.",
+				"file": "src/pipelines/monitoring.py",
+				"markdown": ".guide/amazon-web-services/monitoring-sagemaker-model.md",
+				"actions": [
+					{
+						"label": "Generate fake traffic",
+						"target": "just sagemaker-traffic"
+					},
+					{
+						"label": "Generate fake labels",
+						"target": "just sagemaker-labels"
+					},
+					{
+						"label": "Run Monitoring pipeline",
+						"target": "just sagemaker-monitor"
+					},
+					{
+						"label": "Run Monitoring card server",
+						"target": "uv run src/pipelines/monitoring.py card server",
+						"terminal": "Monitoring Card Server"
+					},
+					{
+						"label": "Open card viewer",
+						"action": "browser",
+						"target": "http://localhost:8324"
+					}
+				]
+			},
+			{
+				"label": "Deploying to AWS Managed Services",
+				"description": "Deploying and running the pipelines using AWS managed services.",
+				"markdown": ".guide/amazon-web-services/deploying-to-aws-managed-services.md",
+				"actions": []
+			},
+			{
+				"label": "Cleaning up",
+				"description": "Cleaning up the resources created on the AWS account.",
+				"markdown": ".guide/amazon-web-services/cleaning-up.md",
+				"actions": [
+					{
+						"label": "Delete MLflow stack",
+						"target": "aws cloudformation delete-stack --stack-name mlflow"
+					},
+					{
+						"label": "Delete Metaflow stack",
+						"target": "aws cloudformation delete-stack --stack-name metaflow"
+					},
+					{
+						"label": "Delete Sagemaker endpoint",
+						"target": "just sagemaker-delete"
+					},
+					{
+						"label": "Clean up AWS resources",
+						"target": "just aws-teardown"
+					}
+				]
+			}
+		]
+	}
+]
