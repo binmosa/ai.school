@@ -94,6 +94,9 @@ class Training(Pipeline):
 
     This pipeline trains, evaluates, and registers a model to predict the species of
     a given penguin.
+
+    The pipeline supports both TensorFlow and PyTorch backends via Keras 3.
+    Set KERAS_BACKEND environment variable to 'tensorflow' or 'torch'.
     """
 
     training_epochs = Parameter(
@@ -120,6 +123,14 @@ class Training(Pipeline):
     def start(self):
         """Start and prepare the Training pipeline."""
         import mlflow
+
+        from common.framework import get_current_framework, validate_framework
+
+        # Validate that the selected framework is available
+        validate_framework()
+        framework = get_current_framework()
+        framework_name = "TensorFlow" if framework == "tensorflow" else "PyTorch"
+        self.logger.info("Using Keras backend: %s", framework_name)
 
         self.logger.info("MLflow tracking server: %s", self.mlflow_tracking_uri)
 

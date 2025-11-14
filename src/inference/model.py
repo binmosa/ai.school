@@ -216,7 +216,11 @@ class Model(mlflow.pyfunc.PythonModel):
 
         import keras
 
-        self.logger.info("Keras backend: %s", os.environ.get("KERAS_BACKEND"))
+        from common.framework import get_current_framework
+
+        framework = get_current_framework()
+        framework_name = "TensorFlow" if framework == "tensorflow" else "PyTorch"
+        self.logger.info("Keras backend: %s", framework_name)
 
         # First, we need to load the transformation pipelines from the model artifacts.
         # These will help us transform the input data and the output predictions.

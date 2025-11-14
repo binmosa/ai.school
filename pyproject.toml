@@ -25,6 +25,8 @@ dependencies = [
     "evidently>=0.7.4,<0.8.0",
     "scikit-learn>=1.6.1,<1.7.0",
     "tensorflow==2.18.1",
+    "torch>=2.5.0",
+    "torchvision>=0.20.0",
     "langchain-community>=0.3.21",
     "faiss-cpu>=1.11.0.post1",
     "langchain-google-genai>=2.1.9",
@@ -32,6 +34,20 @@ dependencies = [
     "litellm>=1.76.1",
     "google-adk>=1.13.0",
     "pytest-asyncio>=1.2.0",
+]
+
+[project.optional-dependencies]
+tensorflow = [
+    "tensorflow==2.18.1",
+]
+pytorch = [
+    "torch>=2.5.0",
+    "torchvision>=0.20.0",
+]
+all-frameworks = [
+    "tensorflow==2.18.1",
+    "torch>=2.5.0",
+    "torchvision>=0.20.0",
 ]
 
 [tool.ruff]
@@ -70,5 +86,7 @@ asyncio_mode = "auto"
 pythonpath="."
 addopts="--maxfail=2 -rf -W ignore::DeprecationWarning"
 markers = [
-    "integration: marks integration tests (deselect with '-m \"not integration\"')"
+    "integration: marks integration tests (deselect with '-m \"not integration\"')",
+    "tensorflow: marks tests that require TensorFlow backend",
+    "pytorch: marks tests that require PyTorch backend",
 ]

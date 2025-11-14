@@ -1,7 +1,9 @@
 set dotenv-load
 set positional-arguments
 
+# Framework and environment configuration
 KERAS_BACKEND := env("KERAS_BACKEND", "tensorflow")
+ML_FRAMEWORK := env("ML_FRAMEWORK", KERAS_BACKEND)
 MLFLOW_TRACKING_URI := env("MLFLOW_TRACKING_URI", "http://127.0.0.1:5000")
 ENDPOINT_NAME := env("ENDPOINT_NAME", "penguins")
 BUCKET := env("BUCKET", "")
@@ -15,6 +17,19 @@ default:
 test:
     uv run pytest
 
+# Run tests for specific framework
+[group('testing')]
+@test-framework framework:
+    KERAS_BACKEND={{framework}} uv run pytest -v
+
+# Run tests for both frameworks
+[group('testing')]
+@test-all:
+    @echo "Testing with TensorFlow backend..."
+    KERAS_BACKEND=tensorflow uv run pytest -v -m "not pytorch"
+    @echo "\nTesting with PyTorch backend..."
+    KERAS_BACKEND=torch uv run pytest -v -m "not tensorflow"
+
 # Display version of required dependencies
 [group('setup')]
 @dependencies:
@@ -26,6 +41,31 @@ test:
     echo "just: $just_version" && \
     echo "docker: $docker_version" && \
     echo "jq: $jq_version"
+
+# Display ML framework information
+[group('setup')]
+@framework-info:
+    @echo "Current ML Framework Configuration:"
+    @echo "======================================"
+    @echo "KERAS_BACKEND: {{KERAS_BACKEND}}"
+    uv run python src/scripts/framework.py info
+
+# Switch to TensorFlow backend
+[group('setup')]
+@use-tensorflow:
+    uv run python src/scripts/framework.py use tensorflow
+    @echo "Run 'source .env' or restart your terminal to apply changes"
+
+# Switch to PyTorch backend
+[group('setup')]
+@use-pytorch:
+    uv run python src/scripts/framework.py use torch
+    @echo "Run 'source .env' or restart your terminal to apply changes"
+
+# Validate current framework setup
+[group('setup')]
+@framework-validate:
+    uv run python src/scripts/framework.py validate
 
 # Run MLflow server
 [group('setup')]
@@ -39,6 +79,25 @@ test:
     cat .env
     export $(cat .env | xargs)
 
+# Sync dependencies with uv
+[group('setup')]
+@sync:
+    uv sync
+
+# Install both TensorFlow and PyTorch
+[group('setup')]
+@install-all:
+    uv sync --all-extras
+
+# Install only TensorFlow dependencies
+[group('setup')]
+@install-tensorflow:
+    uv sync --extra tensorflow
+
+# Install only PyTorch dependencies
+[group('setup')]
+@install-pytorch:
+    uv sync --extra pytorch
 
 # Run training pipeline
 [group('training')]
@@ -46,10 +105,43 @@ test:
     uv run src/pipelines/training.py \
         --with retry run
 
+# Run training with specific backend
+[group('training')]
+@train-with backend:
+    KERAS_BACKEND={{backend}} uv run src/pipelines/training.py \
+        --with retry run
+
+# Train with TensorFlow backend
+[group('training')]
+@train-tensorflow:
+    just train-with tensorflow
+
+# Train with PyTorch backend
+[group('training')]
+@train-pytorch:
+    just train-with torch
+
+# Compare training across both frameworks
+[group('training')]
+@train-compare:
+    @echo "Training with TensorFlow..."
+    KERAS_BACKEND=tensorflow uv run src/pipelines/training.py --with retry run
+    @echo "\nTraining with PyTorch..."
+    KERAS_BACKEND=torch uv run src/pipelines/training.py --with retry run
+    @echo "\nBoth training runs complete. Check MLflow for comparison."
+
 # Serve latest registered model locally
 [group('serving')]
 @serve:
     uv run -- mlflow models serve \
+        -m models:/penguins/$(curl -s -X GET "{{MLFLOW_TRACKING_URI}}/api/2.0/mlflow/registered-models/get-latest-versions" \
+        -H "Content-Type: application/json" -d '{"name": "penguins"}' \
+        | jq -r '.model_versions[0].version') -h 0.0.0.0 -p 8080 --no-conda
+
+# Serve model with specific framework backend
+[group('serving')]
+@serve-with backend:
+    KERAS_BACKEND={{backend}} uv run -- mlflow models serve \
         -m models:/penguins/$(curl -s -X GET "{{MLFLOW_TRACKING_URI}}/api/2.0/mlflow/registered-models/get-latest-versions" \
         -H "Content-Type: application/json" -d '{"name": "penguins"}' \
         | jq -r '.model_versions[0].version') -h 0.0.0.0 -p 8080 --no-conda
