@@ -1,11 +1,11 @@
-# Building Machine Learning Systems
-binmosa fork
+# Building AI Systems
+By BINMOSA
 
 "Building Machine Learning Systems" is designed to teach you how to train, evaluate, deploy, and monitor machine learning models in production. 
 
 In this repository, you'll find the code to build a fully-fledged, end-to-end machine learning system that you can use as a starting point for your own projects.
 
-This repository is part of the [Machine Learning School](https://www.ml.school) program.
+This repository is part of the [AI School](https://www.aischool.com) program.
 
 ## Running in a Development Container
 
@@ -41,11 +41,11 @@ After opening the project on IDX, click on the "Machine Learning School" extensi
 ## Running the project locally
 
 If you prefer to run the project on your local environment, you can start by 
-[forking](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) the [repository](https://github.com/svpino/ml.school) and [cloning](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) it on your computer. 
+[forking](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) the [repository](https://github.com/binmosa/ai.school) and [cloning](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) it on your computer. 
 
 You can run the code on any Unix-based operating system (e.g., Ubuntu or macOS). If you are using Windows, install the [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/about) (WSL).
 
-Open the repository using Visual Studio Code and install the ["Machine Learning School"](https://marketplace.visualstudio.com/items?itemName=tideily.mlschool) extension. If you are using WSL, you need to install the extension on the WSL environment.
+Open the repository using Visual Studio Code and install the ["AI School"](https://marketplace.visualstudio.com/items?itemName=tideily.mlschool) extension. If you are using WSL, you need to install the extension on the WSL environment.
 
 Once installed, this extension will allow you to navigate the documentation, run the pipelines, and deploy the model directly from Visual Studio Code.
 
