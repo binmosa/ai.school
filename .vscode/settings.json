@@ -1,17 +1,13 @@
 {
-    "files.exclude": {
-        ".metaflow": true,
-        ".venv": true,
-        ".vscode": true,
-        "**/__pycache__": true,
-        "**/mlartifacts": true,
-        "**/mlruns": true
-    },
-    "IDX.aI.enableInlineCompletion": true,
-    "IDX.aI.enableCodebaseIndexing": true,
-    "notebook.defaultFormatter": "charliermarsh.ruff",
-    "editor.defaultFormatter": "charliermarsh.ruff",
-    "[python]": {
-        "editor.defaultFormatter": "charliermarsh.ruff"
-    }
+    "cSpell.words": [
+        "algoliasearch",
+        "animata",
+        "ecommerce",
+        "FASTAPI",
+        "giftbox",
+        "heroui",
+        "Messengerco",
+        "preline"
+    ],
+    "terminal.integrated.fontFamily": "MesloLGS NF"
 }
