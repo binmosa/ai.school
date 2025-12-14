@@ -5,13 +5,13 @@ By BINMOSA
 
 In this repository, you'll find the code to build a fully-fledged, end-to-end machine learning system that you can use as a starting point for your own projects.
 
-This repository is part of the [AI School](https://www.aischool.com) program.
+This repository is part of the [AI School](https://www.binmosa.com) course.
 
 ## Running in a Development Container
 
 The best way to clone and run the source code from this repository is using a Development Container.
 
-[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/binmosa/ml.school)
+[![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/binmosa/ai.school)
 
 Most Integrated Development Environments support Development Containers. If you have Visual Studio Code and Docker installed, you can click the badge above or [this link](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/binmosa/ml.school) to automatically install the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers), clone the repository into a container volume, and spin up a container.
 
@@ -27,7 +27,7 @@ After opening the project on IDX, click on the "Machine Learning School" extensi
 
 An alternative way to run the project is using Google's Project IDX. Clicking the button below will create and configure a development environment you can access directly from your browser:
 
-<a href="https://idx.google.com/new?template=https%3A%2F%2Fgithub.com%2Fsvpino%2Fml.school%2F">
+<a href="https://idx.google.com/new?template=https%3A%2F%2Fgithub.com%2Fbinmosa%2Fai.school%2F">
   <img
     height="32"
     alt="Open in IDX"

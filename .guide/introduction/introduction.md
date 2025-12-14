@@ -1,4 +1,6 @@
-# Introduction
+# Introduction مقدمة
+
+من خلال هذه الدورة ستتعلم بشكل تطبيقي بناء أنظمة تعلم الآلة والذكاء الاصطناعي بشكل متكامل ابتداء من تحديد المشكلة ومروراً بجمع البيانات، تنظيف البيانات، تدريب النموذج، ونشر النموذج للاستخدام.
 
 "Building AI & Machine Learning Systems That Don't Suck" is designed to teach you how to train, evaluate, deploy, and monitor AI and Machine Learning systems in production.
 
