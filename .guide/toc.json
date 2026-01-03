@@ -1,6 +1,6 @@
 [
 	{
-		"label": "Introduction",
+		"label": "المقدمة",
 		"description": "System overview and high-level architecture.",
 		"markdown": ".guide/introduction/introduction.md",
 		"actions": [],
@@ -65,7 +65,7 @@
 		]
 	},
 	{
-		"label": "Introduction to Metaflow",
+		"label": "مدخل إلى Metaflow",
 		"description": "Introducing the Metaflow framework for building Machine Learning pipelines.",
 		"file": ".guide/introduction-to-metaflow/src/introduction.py",
 		"markdown": ".guide/introduction-to-metaflow/introduction-to-metaflow.md",

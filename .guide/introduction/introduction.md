@@ -1,18 +1,36 @@
-# Introduction مقدمة
+# مقدمة
 
-من خلال هذه الدورة ستتعلم بشكل تطبيقي بناء أنظمة تعلم الآلة والذكاء الاصطناعي بشكل متكامل ابتداء من تحديد المشكلة ومروراً بجمع البيانات، تنظيف البيانات، تدريب النموذج، ونشر النموذج للاستخدام.
+بسم الله والصلاة والسلام على رسول الله
 
-"Building AI & Machine Learning Systems That Don't Suck" is designed to teach you how to train, evaluate, deploy, and monitor AI and Machine Learning systems in production.
+ أهلا بك في دورة مدرسة الذكاء الاصطناعي (النسخة الأولى) والتي تهدف إلى تعليمك مهارات بناء أنظمة تعلم الآلة والذكاء الاصطناعي.
 
-In this repository, you'll find an end-to-end system that you can use as a starting point for your projects. This template uses the [Penguins dataset](https://www.kaggle.com/parulpandey/palmer-archipelago-antarctica-penguin-data) to train a model capable of classifying penguin species. 
+من خلال هذه الدورة ستتعلم بشكل تطبيقي بناء أنظمة تعلم الآلة والذكاء الاصطناعي بشكل متكامل ابتداء من تحديد المشكلة ومروراً بجمع البيانات، 
+تنظيف البيانات، تدريب النموذج، ونشر النموذج لاستخدامه في أنظمة حية من خلال واجهة برمجة التطبيقات (API) ومراقبة أداء النموذج.
 
-![Penguins dataset](.guide/introduction/images/penguins.png)
 
-This guide provides instructions on how to implement each component of the solution and how to deploy and run the system locally and on different cloud platforms.
+تم تصميم الدورة بشكل تفاعلي بحيث تكون المواد التعليمية والأكواد الخاصة بها جميعا في مستودع الكود هذا (github repository) من خلال استخدام إضافة خاصة لمحرر الأكواد (vs code) والتي تعمل مع جميع محررات الذكاء الاصطناعي الحديثة مثل محرر (cursor, antigravity, ..etc) وغيرها مما يتيح لك تجربة تعليمة سهلة وتفاعلية.
 
-Here is a high-level architecture diagram showing the main components of the solution:
+قبل البدء من المهم مشاهدة الفيديو التعريفي الخاص بالكود والذي يشرح بشكل عناصر الكود وطريقة تجهيز بيئة التعليم الخاصة بك قبل البدء الفعلي في رحلتك التعليمية.
 
-![System architecture](.guide/introduction/images/architecture.png)
+الفيديو التعريفي
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/yxA0jbwx-JI?si=fZgi9w2HHc_KJKCv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+في هذه الدورة، ستجد نظام متكامل لبناء أنظمة تعلم آلة بإمكانك الاعتماد عليه كبنية أساسية لبناء أنظمة أخرى أكثر تعقيداً حسب المشلكة المراد حلها، حيث أن البنية الأساسية ومكونات النظام ثابتة بغض النظر عن المشكلة المراد حلها. لذلك ستركز الدورة على حل مشكلة بسيطة حتى تركز على فهم مكونات النظام وآلية عملها بدلاً من التركيز على حل المشكلة ذاتها.
+
+لذلك سنقوم باستخدام مجموعة بيانات معروفة باسم بيانات طيور البطريق في أرخبيل بالمر (أنتاركتيكا) [Penguins dataset](https://www.kaggle.com/parulpandey/palmer-archipelago-antarctica-penguin-data) والتي تحتوي على مواصفات خاصة لثلاث أنواع من طيور البطريق؛ بحيث نقوم بتدريب النموذج على هذه البيانات، حتى يكون قادراً على تصنيف كل نوع بطريق من خلال معرفة المواصفات.
+
+الصورة التالية توضح الأنواع الثلاثة لطيور البطريق الموجودة في مجموعة البيانات
+![Penguins dataset](.guide/introduction/images/penguins.jpeg)
+
+على الرغم من بساطة مشروع تدريب نموذج آلة لتصنيف أنواع البطريق، إلا أن الدورة التطويرية للنظام تمر بنفس خطوات حل أي مشكلة أخرى أكثر تعقيداً، فمثلاً بالإمكان تطبيق نفس هذه الخطوات لنظام طبي خاص لتصنيف مرض معين بناء على مجموعة بيانات خاصة توثق جميع الخصائص لمن يحمل هذا النوع من المرض، أو بناء نظام خاص لفهم استهلاك الكهرباء والتصنيف الآلي للمستخدمين بناء على نمط الاستهلاك في البيانات، وغيرها من الأمثلة اللامحدودة لمشاكل مختلفة في حياتنا اليومية لمختلف المجالات والتي تمر خطوات حلها بنفس الخطوات التي ستتعلمها في هذه الدورة.
+
+
+المادة التدريبية هذه ستشرح لك معمارية بناء مثل هذه الأنظمة، وشرح كل مكون من مكونات هذه المعمارية وطريقة ربطها وتشغيلها محلياً على جهازك الخاص وكذلك نشرها على منصات الأنظمة السحابية مثل أمازون وقوقل ومايكروسوفت.
+
+الصورة التالية توضح الصورة العامة للمكونات الأساسية لبناء نظام تعلم آلة متكامل  
+
+![System architecture](.guide/introduction/images/architecture.jpeg)
 
 If you find any issues with the code or have any ideas for improving it, please reach out with your recommendations. 
 
