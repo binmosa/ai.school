@@ -1,13 +1,13 @@
 [
 	{
 		"label": "المقدمة",
-		"description": "System overview and high-level architecture.",
+		"description": "نظرة عامة على النظام والبنية العامة للنظام.",
 		"markdown": ".guide/introduction/introduction.md",
 		"actions": [],
 		"lessons": [
 			{
-				"label": "Preparing your environment",
-				"description": "Setting up your development environment and installing the required dependencies.",
+				"label": "Preparing your environment تجهيز بيئة العمل",
+				"description": "تجهيز بيئة العمل وتنزيل المكتبات والحزم المطلوبة.",
 				"markdown": ".guide/introduction/preparing-your-environment.md",
 				"actions": [
 					{
@@ -17,7 +17,7 @@
 				]
 			},
 			{
-				"label": "Setting up MLflow",
+				"label": "Setting up MLflow تهيئة MLflow",
 				"description": "Configuring MLflow to track experiments, manage models, and streamline the training process.",
 				"markdown": ".guide/introduction/setting-up-mlflow.md",
 				"actions": [
@@ -66,7 +66,7 @@
 	},
 	{
 		"label": "مدخل إلى Metaflow",
-		"description": "Introducing the Metaflow framework for building Machine Learning pipelines.",
+		"description": ". مقدمة عن إطار عمل Metaflow لبناء انظمة التعلم الآلي.",
 		"file": ".guide/introduction-to-metaflow/src/introduction.py",
 		"markdown": ".guide/introduction-to-metaflow/introduction-to-metaflow.md",
 		"actions": [

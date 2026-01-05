@@ -1,14 +1,17 @@
-# Preparing Your Environment
+# تجهيز بيئة العمل
 
-If you are running the project repository from inside a development container, you'll have every requirement installed and ready to go.
 
-If you are planning to set it up manually, you can start by installing [uv](https://github.com/astral-sh/uv), a modern Rust-based Python package and project manager tool that will considerably simplify working with the project.
+أفضل وأسهل طريقة لتشغيل هذا المشروع بجميع متطلباته من خلال استخدام الـ(devcontainer) أو ما يعرف ببيئة التطوير باستخدام دوكر، حيث تم تجهيز ملف ديف كونتينر جاهز ضمن هذا المشروع يتم تشغيله من خلال دوكر، وتم شرح الخطوات في الفيديو التعريفي للمشروع.
 
-To install uv in your system, follow the instructions in the [official documentation](https://docs.astral.sh/uv/). When you finish, check that you have the tool correctly installed by running the `uv` command:
+أما في حالة رغبتك في تجهيز بيئة العمل يدوياً وتنزيل جميع المكتبات بشكل يدوي، فبإمكانك البدء من خلال تنزيل مكتبة يو في ( [uv](https://github.com/astral-sh/uv)) وهي عبارة عن مكتبة بايثون خاصة لإدارة الحزم والمشاريع تم تطويرها بلغة رست، وتعتبر هذه المكتبة حديثة وسريعة وسهلة لإدارة المشاريع والحزم البرمجية كما تلاحظ لاحقاً.
+ 
+بإمكانك اتباع التعليمات الخاصة في الموقع الرسمي لمكتبة يو في  [official documentation](https://docs.astral.sh/uv/) لمعرفة خطوات تنزيل المكتبة على جهازك الخاص. عند الانتهاء من التنزيل، قم بالتحقق من خلال الأمر `uv` command:
 
 ```shell
 uv --version
 ```
+
+سنقوم بتشغيل الكثير من أوامر مكتبة (uv) في هذا المشروع، ولغرض تبسيط هذه الأوامر الكثيرة، سنستخدم أداة أكثر من رائعة معروفة باسم () وهي أداة تتيح لك تجميع مجموعة من الأوامر تحت أمر واحد، فمثلاً بدلاً من تشغيل عشرة أوامر (uv) بإمكانك تجميعها تحت أمر (just) واحد واستدعاء هذا الأمر ليقوم بتنفيذ العشر أوامر.
 
 We'll be running many different commands throughout the project, and to simplify this process, we'll use [`just`](https://github.com/casey/just), a tool that will let us define recipes to automate common commands, making our workflow much more efficient.
 
