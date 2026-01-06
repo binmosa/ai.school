@@ -11,11 +11,10 @@
 uv --version
 ```
 
-سنقوم بتشغيل الكثير من أوامر مكتبة (uv) في هذا المشروع، ولغرض تبسيط هذه الأوامر الكثيرة، سنستخدم أداة أكثر من رائعة معروفة باسم () وهي أداة تتيح لك تجميع مجموعة من الأوامر تحت أمر واحد، فمثلاً بدلاً من تشغيل عشرة أوامر (uv) بإمكانك تجميعها تحت أمر (just) واحد واستدعاء هذا الأمر ليقوم بتنفيذ العشر أوامر.
+سنقوم بتشغيل الكثير من أوامر مكتبة (uv) في هذا المشروع، ولغرض تبسيط هذه الأوامر الكثيرة، سنستخدم أداة أكثر من رائعة معروفة باسم ([`just`](https://github.com/casey/just)) وهي أداة تتيح لك تجميع مجموعة من الأوامر تحت أمر واحد، فمثلاً بدلاً من تشغيل عشرة أوامر (uv) بإمكانك تجميعها تحت أمر (just) واحد واستدعاء هذا الأمر ليقوم بتنفيذ العشر أوامر.
 
-We'll be running many different commands throughout the project, and to simplify this process, we'll use [`just`](https://github.com/casey/just), a tool that will let us define recipes to automate common commands, making our workflow much more efficient.
 
-Follow the steps in the [official documentation](https://github.com/casey/just) to install `just`. Once installed, ensure everything is set up correctly by running the following command:
+قم بتحميل وتنزيل الأداة () حسب تعليمات الموقع الرسمي [official documentation](https://github.com/casey/just) بعد التنزيل قم بالتحقق من خلال تشغيل الأمر 
 
 ```shell
 just --version
