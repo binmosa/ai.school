@@ -6,7 +6,7 @@
 		"actions": [],
 		"lessons": [
 			{
-				"label": "Preparing your environment تجهيز بيئة العمل",
+				"label": "تجهيز بيئة العمل",
 				"description": "تجهيز بيئة العمل وتنزيل المكتبات والحزم المطلوبة.",
 				"markdown": ".guide/introduction/preparing-your-environment.md",
 				"actions": [
@@ -17,7 +17,7 @@
 				]
 			},
 			{
-				"label": "Setting up MLflow تهيئة MLflow",
+				"label": "تهيئة MLflow",
 				"description": "Configuring MLflow to track experiments, manage models, and streamline the training process.",
 				"markdown": ".guide/introduction/setting-up-mlflow.md",
 				"actions": [

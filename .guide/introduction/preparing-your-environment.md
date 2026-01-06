@@ -20,24 +20,29 @@ uv --version
 just --version
 ```
 
-We'll also use [Docker](https://www.docker.com/) to run and deploy the models we'll build as part of the project. To install Docker, follow the instructions corresponding to your operating system in the [Docker documentation](https://docs.docker.com/engine/install/). After installation, confirm that Docker is working properly by running the following command:
+بالطلبع سيتم استخدام دوكر ([Docker](https://www.docker.com/)) لتشغيل ونشر النماذج التي يتم تطويرها خلال هذه الدورة. ولتنزيل تقنية الحاويات دوكر () قم باتباع الخطوات حسب الصفحة الرسمية [Docker documentation](https://docs.docker.com/engine/install/). بعد التنزيل، قم بالتحقق من خلال الأمر
 
 ```shell
 docker ps
 ```
 
-We'll use [`jq`](https://jqlang.github.io/jq/), a lightweight and flexible command-line JSON processor, to parse and manipulate JSON data efficiently. This tool will come in handy when dealing with the responses from the different platforms we'll interact with.
 
-You can install `jq` by following the instructions in the [official documentation](https://jqlang.github.io/jq/download/), and verify its installation by running the following:
+سنستخدم أيضاً أداة ([`jq`](https://jqlang.github.io/jq/)) وهي أداة خفيفة ومرنة تم تصميمها لمعالجة وتحويل بيانات (JSON) بحيث نستطيع التعامل مع ملفات JSON بشكل سهل، فمثلا لو افترضنا وجود ملف جيسون يحتوي على بيانات المستخدمين : الاسم، العمر، تاريخ الميلاد .. الخ، واريد استرجاع فقط الأسماء، هذه الأداة تتيح لنا عمل ذلك من خلال كتابة الأمر
+
+```shell
+jq '.[].name' data.json
+```
+دون الحاجة لكتابة كود بايثون فقط من خلال سطر الأوامر. هذه الأداة مفيدة عند التعامل مع مختلف المخرجات التي نتعامل معها خلال هذه الدورة.
+
+قم بتحميل وتنزيل هذه الأداة من خلال هذا الرابط ([official documentation](https://jqlang.github.io/jq/download/)) وبعد التنزيل قم بالتحقق من خلال الأمر
 
 ```shell
 jq --version
 ```
 
-Finally, you can run your first `just` recipe to check whether you have the required dependencies correctly installed in your environment:
+أخيراً، بعد الانتهاء من الخطوات أعلاها، الآن نقوم بتشغيل أول أمر (just) في هذا المشروع للتأكد من توفر جميع المتطلبات اللازمة في بيئة العمل
 
 ```shell
 just dependencies
 ```
-
-This recipe should display a message with every one of the required tools and their respective versions installed in your environment.
+عند تشغيل الأمر أعلاه سيتم عرض رسالة تحتوي على جميع المكتبات والأدوات المتاحة في بيئة العمل الخاصة بك مع رقم النسخة 
